@@ -7,6 +7,12 @@ document.body.append(container);
 function sketchSquare() {
     const square = document.createElement('div');
     square.classList.add('square');
+    square.style =`
+    width: 50px;
+    height: 50px;
+    background-color: DodgerBlue;
+    border-radius: 10px;
+    `;
     container.append(square);
 };
 
