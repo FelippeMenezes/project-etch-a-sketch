@@ -2,6 +2,11 @@ const numberOfSquares = 256;
 
 const container = document.createElement('div');
 container.classList.add('container');
+container.style = `
+    display: flex;
+    flex-wrap: wrap;
+    width: 800px;
+`
 document.body.append(container);
 
 function sketchSquare() {
