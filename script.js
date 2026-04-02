@@ -15,6 +15,12 @@ container.style = `
 */
 document.body.append(container);
 
+function hoverSquare(square) {
+    square.addEventListener("mouseenter", () => {
+    square.style.backgroundColor = "Tomato";
+    });
+};
+
 function sketchSquare() {
     const square = document.createElement('div');
     square.classList.add('square');
@@ -24,8 +30,11 @@ function sketchSquare() {
     background-color: DodgerBlue;
     border-radius: 10px;
     margin: 1px;
+    cursor: pointer;
     `;
     container.append(square);
+
+    hoverSquare(square);
 };
 
 function numberSquare() {
@@ -35,5 +44,3 @@ function numberSquare() {
 };
 
 numberSquare();
-
-
