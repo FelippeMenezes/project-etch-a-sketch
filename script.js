@@ -5,18 +5,25 @@ container.classList.add('container');
 container.style = `
     display: flex;
     flex-wrap: wrap;
-    width: 800px;
-`
+    width: 672px;
+`;
+/*
+  16 squares per row
+  Each square takes up 42px total:
+  40px (width) + 2px margin (1px on each side)
+  So: 16 × 42 = 672px
+*/
 document.body.append(container);
 
 function sketchSquare() {
     const square = document.createElement('div');
     square.classList.add('square');
     square.style =`
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background-color: DodgerBlue;
     border-radius: 10px;
+    margin: 1px;
     `;
     container.append(square);
 };
