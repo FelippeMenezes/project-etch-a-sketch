@@ -1,46 +1,53 @@
-const numberOfSquares = 256;
-
+// /home/dell/Felippe/top/project-etch-a-sketch/script.js
+const button = document.createElement("button");
 const container = document.createElement('div');
-container.classList.add('container');
-container.style = `
-    display: flex;
-    flex-wrap: wrap;
-    width: 672px;
-`;
-/*
-  16 squares per row
-  Each square takes up 42px total:
-  40px (width) + 2px margin (1px on each side)
-  So: 16 × 42 = 672px
-*/
-document.body.append(container);
+
+document.body.append(button);
+button.textContent = "Choose the Number of Squares"
+button.classList.add("button");
+
+function randomRgb() {
+    return Math.floor(Math.random() * 256);
+};
 
 function hoverSquare(square) {
     square.addEventListener("mouseenter", () => {
-    square.style.backgroundColor = "Tomato";
+    const currentOpacity = parseFloat(getComputedStyle(square).opacity);
+    square.style.opacity = (parseFloat(currentOpacity) - 0.1).toFixed(1);
     });
 };
 
 function sketchSquare() {
     const square = document.createElement('div');
-    square.classList.add('square');
-    square.style =`
-    width: 40px;
-    height: 40px;
-    background-color: DodgerBlue;
-    border-radius: 10px;
-    margin: 1px;
-    cursor: pointer;
-    `;
+
     container.append(square);
+    square.classList.add('square');
+    square.style =`background-color: ${`rgb(${randomRgb()}, ${randomRgb()}, ${randomRgb()})`};`;
 
     hoverSquare(square);
 };
 
-function numberSquare() {
+function numberSquare(numberOfSquares) {
     for (let i = 0; i < numberOfSquares; i++) {
-        sketchSquare();
+        for (let j = 0; j < numberOfSquares; j++) {
+            sketchSquare();
+        }
     };
 };
 
-numberSquare();
+function userNumberOfSquares () {
+    container.innerHTML = "";
+    let input = 0;
+    input = parseInt(prompt("How many squares per side? (max 100)")/2);
+    let numberOfSquares = Math.min(input, 50);
+    let widthSize = 22 * numberOfSquares + 13;
+
+    container.classList.add('container');
+    container.style = `width: ${widthSize}px;`;
+    document.body.append(container);
+    numberSquare(numberOfSquares);
+};
+
+button.addEventListener("click", () => {
+    userNumberOfSquares();
+});
