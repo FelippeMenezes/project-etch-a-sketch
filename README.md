@@ -22,8 +22,6 @@ A simple sketchpad app inspired by Etch-a-Sketch, built to practice DOM manipula
 ## 🕹️ How to Use
 1.  **Initialize:** Open the app and enter the desired grid size when prompted (e.g., 16 for 16x16).
 2.  **Draw:** Move your cursor over the canvas to start sketching.
-3.  **Switch Modes:** Select between classic, rainbow, or shading modes to vary the output.
-4.  **Reset:** Click the clear button to reset the drawing board at any time.
 
 ## 🧠 What I Learned
 During this project, I reinforced my knowledge of:
